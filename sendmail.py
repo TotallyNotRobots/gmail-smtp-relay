@@ -1,11 +1,10 @@
 import email
-import fileinput
+import sys
 from smtplib import SMTP
 
 
 def parse_message():
-    with fileinput.input() as f:
-        return email.message_from_string("".join(f))
+    return email.message_from_string(sys.stdin.read())
 
 
 def send_message(message):
